@@ -19,7 +19,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 import joblib
 
 # Load the data
-df = pd.read_csv('SiteDataCleanedFormatted.csv', nrows=2557)
+df = pd.read_csv('sitedata_dirty_rev.csv', nrows=2557)
 
 # Features for regression (excluding targets and bloomstatus)
 X_reg = df.drop(['Chl_a', 'bloomstatus', 'BGA-PC (microg/L)'], axis=1).values

@@ -1,0 +1,340 @@
+Missing values per column:
+ Site                                  0
+Depth (m)                             0
+Day                                   0
+Chlorophyll-a Fluorescence (RFU)      0
+FDOM Fluorescence (RFU)               0
+Turbidity (NTU)                       3
+Actual Conductivity  (uS/cm)          0
+Specific Conductivity(uS/cm)          0
+Salinity(PSU)                         0
+Resistivity(ohm*cm)                   0
+Density(g/cm^3)                       0
+Total Dissolved Solids (ppt)          2
+BGA-PC Fluorescence(RFU)              0
+Temperature(C)                        0
+Barometric Pressure(mm Hg)            0
+Pressure (psi)                        3
+Depth(m)                              0
+Nitrate(NO3-r -N)                     0
+Nitrate(mV)                           0
+External Voltage(V)                   0
+Latitude                            217
+Longitude                           217
+BGA-PC (ug/L)                         0
+Chl_a (ug/L)                          0
+BGA-PC/ Chl-a                         0
+bloomstatus Chl-a                     0
+bloomstatus BGA-PC                    0
+bloomstatus BGA-PC/Chl-a              0
+dtype: int64
+
+=== LinearRegression ===
+Chl-a: R2=1.000, MAE=0.000
+BGA-PC: R2=0.999, MAE=0.074
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from LinearRegression)
+Label: bloomstatus Chl-a | CV-Acc=0.998 | CV-F1=0.996
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.997     0.998      1885
+           1      0.991     1.000     0.996       679
+
+    accuracy                          0.998      2564
+   macro avg      0.996     0.998     0.997      2564
+weighted avg      0.998     0.998     0.998      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.511 | CV-F1=0.571
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.775     0.052     0.097      1795
+           1      0.304     0.965     0.462       769
+
+    accuracy                          0.326      2564
+   macro avg      0.539     0.508     0.280      2564
+weighted avg      0.634     0.326     0.207      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.901 | CV-F1=0.858
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.997     0.863     0.925      1795
+           1      0.757     0.995     0.860       769
+
+    accuracy                          0.902      2564
+   macro avg      0.877     0.929     0.892      2564
+weighted avg      0.925     0.902     0.906      2564
+
+Saved predictions and label outputs to: df_with_LinearRegression_predictions_and_labels.csv
+
+=== RandomForestRegressor ===
+Chl-a: R2=1.000, MAE=0.001
+BGA-PC: R2=0.997, MAE=0.010
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from RandomForestRegressor)
+Label: bloomstatus Chl-a | CV-Acc=0.998 | CV-F1=0.996
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.997     0.998      1885
+           1      0.991     1.000     0.996       679
+
+    accuracy                          0.998      2564
+   macro avg      0.996     0.998     0.997      2564
+weighted avg      0.998     0.998     0.998      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.350 | CV-F1=0.463
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.780     0.099     0.175      1795
+           1      0.308     0.935     0.463       769
+
+    accuracy                          0.349      2564
+   macro avg      0.544     0.517     0.319      2564
+weighted avg      0.638     0.349     0.261      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.947 | CV-F1=0.920
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.999     0.931     0.964      1795
+           1      0.862     0.999     0.925       769
+
+    accuracy                          0.952      2564
+   macro avg      0.931     0.965     0.945      2564
+weighted avg      0.958     0.952     0.953      2564
+
+Saved predictions and label outputs to: df_with_RandomForestRegressor_predictions_and_labels.csv
+
+=== SVR ===
+Chl-a: R2=0.994, MAE=0.052
+BGA-PC: R2=0.978, MAE=0.084
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from SVR)
+Label: bloomstatus Chl-a | CV-Acc=0.988 | CV-F1=0.977
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.998     0.986     0.992      1885
+           1      0.963     0.994     0.978       679
+
+    accuracy                          0.988      2564
+   macro avg      0.980     0.990     0.985      2564
+weighted avg      0.989     0.988     0.988      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.333 | CV-F1=0.466
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.820     0.061     0.113      1795
+           1      0.306     0.969     0.466       769
+
+    accuracy                          0.333      2564
+   macro avg      0.563     0.515     0.289      2564
+weighted avg      0.666     0.333     0.219      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.728 | CV-F1=0.283
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.713     0.966     0.821      1795
+           1      0.541     0.094     0.160       769
+
+    accuracy                          0.704      2564
+   macro avg      0.627     0.530     0.490      2564
+weighted avg      0.662     0.704     0.622      2564
+
+Saved predictions and label outputs to: df_with_SVR_predictions_and_labels.csv
+
+=== KNeighborsRegressor ===
+Chl-a: R2=0.974, MAE=0.070
+BGA-PC: R2=0.968, MAE=0.513
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from KNeighborsRegressor)
+Label: bloomstatus Chl-a | CV-Acc=0.950 | CV-F1=0.911
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.991     0.942     0.966      1885
+           1      0.858     0.976     0.913       679
+
+    accuracy                          0.951      2564
+   macro avg      0.924     0.959     0.939      2564
+weighted avg      0.956     0.951     0.952      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.939 | CV-F1=0.903
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.974     0.939     0.956      1795
+           1      0.868     0.941     0.903       769
+
+    accuracy                          0.940      2564
+   macro avg      0.921     0.940     0.930      2564
+weighted avg      0.942     0.940     0.940      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.838 | CV-F1=0.782
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.985     0.783     0.872      1795
+           1      0.657     0.971     0.784       769
+
+    accuracy                          0.839      2564
+   macro avg      0.821     0.877     0.828      2564
+weighted avg      0.886     0.839     0.846      2564
+
+Saved predictions and label outputs to: df_with_KNeighborsRegressor_predictions_and_labels.csv
+
+=== GradientBoostingRegressor ===
+Chl-a: R2=1.000, MAE=0.001
+BGA-PC: R2=1.000, MAE=0.019
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from GradientBoostingRegressor)
+Label: bloomstatus Chl-a | CV-Acc=0.999 | CV-F1=0.998
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.998     0.999      1885
+           1      0.996     1.000     0.998       679
+
+    accuracy                          0.999      2564
+   macro avg      0.998     0.999     0.998      2564
+weighted avg      0.999     0.999     0.999      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.990 | CV-F1=0.984
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.993     0.997      1795
+           1      0.985     1.000     0.992       769
+
+    accuracy                          0.995      2564
+   macro avg      0.992     0.997     0.994      2564
+weighted avg      0.995     0.995     0.995      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.937 | CV-F1=0.905
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.996     0.920     0.956      1795
+           1      0.841     0.991     0.910       769
+
+    accuracy                          0.941      2564
+   macro avg      0.918     0.955     0.933      2564
+weighted avg      0.949     0.941     0.942      2564
+
+Saved predictions and label outputs to: df_with_GradientBoostingRegressor_predictions_and_labels.csv
+
+=== Ridge ===
+Chl-a: R2=1.000, MAE=0.000
+BGA-PC: R2=0.999, MAE=0.072
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from Ridge)
+Label: bloomstatus Chl-a | CV-Acc=0.998 | CV-F1=0.996
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.997     0.998      1885
+           1      0.991     1.000     0.996       679
+
+    accuracy                          0.998      2564
+   macro avg      0.996     0.998     0.997      2564
+weighted avg      0.998     0.998     0.998      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.994 | CV-F1=0.990
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.992     0.996      1795
+           1      0.982     1.000     0.991       769
+
+    accuracy                          0.995      2564
+   macro avg      0.991     0.996     0.994      2564
+weighted avg      0.995     0.995     0.995      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.944 | CV-F1=0.915
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.995     0.933     0.963      1795
+           1      0.863     0.990     0.922       769
+
+    accuracy                          0.950      2564
+   macro avg      0.929     0.961     0.942      2564
+weighted avg      0.956     0.950     0.951      2564
+
+Saved predictions and label outputs to: df_with_Ridge_predictions_and_labels.csv
+
+=== Lasso ===
+Chl-a: R2=1.000, MAE=0.008
+BGA-PC: R2=0.999, MAE=0.105
+
+-- Classifier: LogReg (features: predicted BGA, Chl-a, Ratio from Lasso)
+Label: bloomstatus Chl-a | CV-Acc=0.998 | CV-F1=0.996
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      1.000     0.997     0.998      1885
+           1      0.991     1.000     0.996       679
+
+    accuracy                          0.998      2564
+   macro avg      0.996     0.998     0.997      2564
+weighted avg      0.998     0.998     0.998      2564
+
+Label: bloomstatus BGA-PC | CV-Acc=0.992 | CV-F1=0.987
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.999     0.991     0.995      1795
+           1      0.980     0.997     0.988       769
+
+    accuracy                          0.993      2564
+   macro avg      0.989     0.994     0.992      2564
+weighted avg      0.993     0.993     0.993      2564
+
+Label: bloomstatus BGA-PC/Chl-a | CV-Acc=0.934 | CV-F1=0.898
+
+Classification Report (full data, for reference):
+              precision    recall  f1-score   support
+
+           0      0.988     0.926     0.956      1795
+           1      0.849     0.973     0.907       769
+
+    accuracy                          0.940      2564
+   macro avg      0.918     0.949     0.931      2564
+weighted avg      0.946     0.940     0.941      2564
+
+Saved predictions and label outputs to: df_with_Lasso_predictions_and_labels.csv
+
+=== Summary (in-sample regression metrics) ===
+LinearRegression: Chl-a R2=1.000 MAE=0.000 | BGA-PC R2=0.999 MAE=0.074 | CSV=df_with_LinearRegression_predictions_and_labels.csv
+RandomForestRegressor: Chl-a R2=1.000 MAE=0.001 | BGA-PC R2=0.997 MAE=0.010 | CSV=df_with_RandomForestRegressor_predictions_and_labels.csv
+SVR: Chl-a R2=0.994 MAE=0.052 | BGA-PC R2=0.978 MAE=0.084 | CSV=df_with_SVR_predictions_and_labels.csv
+KNeighborsRegressor: Chl-a R2=0.974 MAE=0.070 | BGA-PC R2=0.968 MAE=0.513 | CSV=df_with_KNeighborsRegressor_predictions_and_labels.csv
+GradientBoostingRegressor: Chl-a R2=1.000 MAE=0.001 | BGA-PC R2=1.000 MAE=0.019 | CSV=df_with_GradientBoostingRegressor_predictions_and_labels.csv
+Ridge: Chl-a R2=1.000 MAE=0.000 | BGA-PC R2=0.999 MAE=0.072 | CSV=df_with_Ridge_predictions_and_labels.csv
+Lasso: Chl-a R2=1.000 MAE=0.008 | BGA-PC R2=0.999 MAE=0.105 | CSV=df_with_Lasso_predictions_and_labels.csv
